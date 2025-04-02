@@ -30,8 +30,8 @@ class Python_exercise(object):
 时 ⾼ 于4 0 万 元 的 部 分 ， 可 提 成 3 % ： 6 0 万 到 1 0 0 万 之 间 时 ， ⾼ 于 6 0 万 元 的 部 分 ， 可 提 成 1 . 5 % ，
 ⾼ 于1 0 0 万 元 时 ， 超 过 1 0 0 万 元 的 部 分 按 1 % 提 成 ， 从 键 盘 输 ⼊ 当 ⽉ 利 润 | ， 求 应 发 放 奖 ⾦
 总 数 ？"""
-        self.result = False
-        self.index_number = 1
+        self.result = True
+        self.index_number = 2
         bonus1 = 100000 * 0.1
         bonus2 = bonus1 + 100000 * 0.075
         bonus4 = bonus2 + 200000 * 0.05
@@ -50,7 +50,15 @@ class Python_exercise(object):
             bonus = bonus6 + (l-600000) * 0.015
         else:
             bonus = bonus10 + (l-1000000) * 0.01
-        print(bonus,bonus10)
+        print(bonus)
+
+    def ex3(self):
+        """
+
+        """
+        self.result = True
+        self.index_number = 1
+
 
 if __name__ == '__main__':
     a = Python_exercise()
