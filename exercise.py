@@ -1,3 +1,4 @@
+from math import sqrt
 
 
 class Python_exercise(object):
@@ -54,12 +55,18 @@ class Python_exercise(object):
 
     def ex3(self):
         """
-
+         ⼀ 个 整 数 ， 它 加 上 1 0 0 后 是 ⼀ 个 完 全 平 ⽅ 数 ， 再 加 上 2 6 8 又 是 ⼀ 个 完 全 平 ⽅ 数 ， 请 该 数 是 多 少 ？
         """
-        self.result = True
+        #这一题目主要学到了两个知识点：1.开方函数sqrt()   2.判断一个数是不是完全平方数，可以使用开方后转为整形再平方与这个数本身比较
+        self.result = False
         self.index_number = 1
+        for i in range(100000):
+            x = int(sqrt(i+100))
+            y = int(sqrt(i+268))
+            if (x*x == i + 100) and (y*y == i + 268):
+                print(i)
 
 
 if __name__ == '__main__':
     a = Python_exercise()
-    a.ex2()
+    a.ex3()
