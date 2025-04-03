@@ -13,10 +13,10 @@ class Python_exercise(object):
         num_li = list(eval("1,2,3,4"))
         count = 0
         for i in num_li:
-            num = i*100
+            num = i * 100
             for j in num_li:
                 if j != i:
-                    num += j*10
+                    num += j * 10
                     for k in num_li:
                         if k != j and k != i:
                             num += k
@@ -42,15 +42,15 @@ class Python_exercise(object):
         if l <= 100000:
             bonus = l * 0.1
         elif 100000 < l <= 200000:
-            bonus = bonus1 + (l-100000) * 0.075
+            bonus = bonus1 + (l - 100000) * 0.075
         elif 200000 < l <= 400000:
-            bonus = bonus2 + (l-200000) * 0.05
+            bonus = bonus2 + (l - 200000) * 0.05
         elif 400000 < l <= 600000:
-            bonus = bonus4 + (l-400000) * 0.03
+            bonus = bonus4 + (l - 400000) * 0.03
         elif 600000 < l <= 1000000:
-            bonus = bonus6 + (l-600000) * 0.015
+            bonus = bonus6 + (l - 600000) * 0.015
         else:
-            bonus = bonus10 + (l-1000000) * 0.01
+            bonus = bonus10 + (l - 1000000) * 0.01
         print(bonus)
 
     def ex3(self):
@@ -59,14 +59,65 @@ class Python_exercise(object):
         """
         #这一题目主要学到了两个知识点：1.开方函数sqrt()   2.判断一个数是不是完全平方数，可以使用开方后转为整形再平方与这个数本身比较
         self.result = False
-        self.index_number = 1
+        self.index_number = 3
         for i in range(100000):
-            x = int(sqrt(i+100))
-            y = int(sqrt(i+268))
-            if (x*x == i + 100) and (y*y == i + 268):
+            x = int(sqrt(i + 100))
+            y = int(sqrt(i + 268))
+            if (x * x == i + 100) and (y * y == i + 268):
                 print(i)
 
+    def ex4(self):
+        """
+         输 ⼊ 某 年 某 ⽉ 某 ⽇ ， 判 断 这 ⼀ 天 是 这 ⼀ 年 的 第 ⼏ 天
+        """
+        self.result = False
+        self.index_number = 4
+        year = int(input("输入年份"))
+        month = int(input("输入月份"))
+        day = int(input("输入日"))
+        february_day = 28
+        if month > 2 and ((year % 400 == 0) or (year % 4 == 0 and (year % 100 != 0))):
+            february_day = 29
+        month_31 = month // 2
+        month_30 = month - 1 - month_31
+        day_num = 30 * month_30 + 31 * month_31 + day
+        if february_day == 28 and month >= 3:
+            day_num = day_num - 2
+        elif february_day == 29 and month >= 3:
+            day_num = day_num - 1
+        print(day_num)
+
+        #ds写法
+        # self.result = False
+        # self.index_number = 4
+        # try:
+        #     year = int(input("输入年份: "))
+        #     month = int(input("输入月份: "))
+        #     day = int(input("输入日: "))
+        # except ValueError:
+        #     print("请输入有效的整数日期。")
+        #     return
+        #
+        # # 定义每个月的天数
+        # month_days = [31, 28, 31, 30, 31, 30,
+        #               31, 31, 30, 31, 30, 31]
+        #
+        # # 判断是否为闰年，并调整2月天数
+        # if ((year % 400 == 0) or (year % 4 == 0 and year % 100 != 0)):
+        #     month_days[1] = 29
+        #
+        # # 检查输入的月份和日期是否有效
+        # if month < 1 or month > 12:
+        #     print("月份应在1到12之间。")
+        #     return
+        # if day < 1 or day > month_days[month - 1]:
+        #     print(f"{year}年{month}月没有{day}日。")
+        #     return
+
+        # 计算这一天是这一年的第几天
+        # day_num = sum(month_days[:month - 1]) + day
+        # print(f"{year}年{month}月{day}日是这一年的第{day_num}天。")
 
 if __name__ == '__main__':
     a = Python_exercise()
-    a.ex3()
+    a.ex4()
