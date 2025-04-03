@@ -118,6 +118,18 @@ class Python_exercise(object):
         # day_num = sum(month_days[:month - 1]) + day
         # print(f"{year}年{month}月{day}日是这一年的第{day_num}天。")
 
+    def ex5(self):
+        """
+        输 ⼊ 三 个 整 数 x , y , Z ， 请 把 这 三 个 数 由 ⼩ 到 ⼤ 输 出
+        """
+        list1 = input("输入三个整数，以,隔开：").split(",")
+        list_int = []
+        for i in list1:
+            list_int.append(int(i))
+        list_int.sort()
+        for k in list_int:
+            print(k)
+
 if __name__ == '__main__':
     a = Python_exercise()
-    a.ex4()
+    a.ex5()
